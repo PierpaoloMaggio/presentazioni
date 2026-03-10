@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta di Consulenza Strategica — Macrebag</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.css">
+
+  <style>
+    :root {
+      --bg:       #F7F5F0;
+      --bg2:      #EEEAE2;
+      --dark:     #1C2826;
+      --dark2:    #253230;
+      --teal:     #1A8C64;
+      --teal-lt:  #37F4A4;
+      --ink:      #111111;
+      --muted:    #6B6B6B;
+      --border:   #D8D4CC;
+      --font-ser: 'Instrument Serif', serif;
+      --font-san: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .reveal {
+      background: var(--bg);
+      font-family: var(--font-san);
+      color: var(--ink);
+    }
+
+    .reveal .slides {
+      text-align: left;
+    }
+
+    .reveal .slides section {
+      padding: 3rem 4.5rem;
+      height: 100%;
+      display: flex !important;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .eyebrow {
+      font-family: var(--font-san);
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    .reveal h2 {
+      font-family: var(--font-ser);
+      font-size: 2.6rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.1;
+      color: var(--ink);
+      margin: 0 0 0.3rem;
+    }
+
+    .reveal h2 strong {
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    .reveal p {
+      font-size: 0.9rem;
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── DIVIDERS ── */
+    .rule {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 1.2rem 0;
+    }
+    .rule-accent {
+      width: 2.5rem;
+      height: 3px;
+      background: var(--teal);
+      margin: 0.8rem 0 1.6rem;
+    }
+
+    /* ── SLIDE NUMBER ── */
+    .slide-num {
+      position: absolute;
+      bottom: 1.4rem;
+      right: 2.5rem;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      color: var(--border);
+      font-family: var(--font-san);
+    }
+
+    /* ── LISTS ── */
+    .fact-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .fact-list li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.45;
+      padding: 0.55rem 0 0.55rem 1.4rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .fact-list li:first-child { border-top: 1px solid var(--border); }
+    .fact-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-size: 0.7rem;
+      top: 0.6rem;
+    }
+    .fact-list li strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .check-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .check-list li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding-left: 1.4rem;
+      position: relative;
+      line-height: 1.4;
+    }
+    .check-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+    .check-list li strong { color: var(--ink); font-weight: 600; }
+
+    .step-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .step-list li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding-left: 2.2rem;
+      position: relative;
+      line-height: 1.45;
+    }
+    .step-list li .n {
+      position: absolute;
+      left: 0;
+      width: 1.4rem;
+      height: 1.4rem;
+      border: 1.5px solid var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      font-weight: 700;
+      color: var(--teal);
+      top: 0;
+    }
+
+    /* ── GRIDS ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.2rem; }
+    .grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+
+    /* ── STAT CARDS (slide 4) ── */
+    .loss-card {
+      padding: 1.3rem 1.4rem;
+      border: 1px solid var(--border);
+    }
+    .loss-card:nth-child(1) { border-right: none; border-bottom: none; }
+    .loss-card:nth-child(2) { border-bottom: none; }
+    .loss-card:nth-child(3) { border-right: none; }
+    .loss-stat {
+      font-family: var(--font-ser);
+      font-size: 3rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .loss-title {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .loss-body {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .loss-body strong { color: var(--ink); font-weight: 600; }
+
+    /* ── OPPORTUNITY CARDS ── */
+    .opp-card {
+      padding: 1.4rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .opp-stat {
+      font-family: var(--font-ser);
+      font-size: 2.2rem;
+      font-style: italic;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.2rem;
+    }
+    .opp-label {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.6rem;
+    }
+    .opp-body { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── PHASE BLOCKS ── */
+    .phase-block {
+      padding: 1.4rem;
+      border-left: 3px solid var(--border);
+    }
+    .phase-block.active { border-left-color: var(--teal); }
+    .phase-n {
+      font-family: var(--font-ser);
+      font-size: 2.2rem;
+      font-style: italic;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .phase-block.active .phase-n { color: var(--teal); }
+    .phase-tag {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.25rem;
+    }
+    .phase-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .phase-body { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+    .phase-body strong { color: var(--ink); font-weight: 600; }
+
+    /* ── AUDIT TABLE ── */
+    .audit-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.4rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .audit-row:last-child { border-bottom: none; }
+    .audit-lbl {
+      width: 10rem;
+      flex-shrink: 0;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      padding-top: 0.1rem;
+    }
+    .audit-txt {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .audit-txt strong { color: var(--ink); font-weight: 600; }
+
+    /* ── TEAM CARDS ── */
+    .team-card {
+      padding: 1.2rem 1.4rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .team-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.15rem;
+    }
+    .team-role {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.55rem;
+    }
+    .team-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── PRICING ── */
+    .price-card {
+      padding: 1.8rem;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      position: relative;
+    }
+    .price-card.featured {
+      background: var(--dark);
+      border-color: var(--dark);
+    }
+    .price-card.featured .price-badge { color: var(--teal-lt); }
+    .price-card.featured .price-iva,
+    .price-card.featured .price-title,
+    .price-card.featured .price-phase { color: rgba(255,255,255,0.6); }
+    .price-card.featured .price-body li { color: rgba(255,255,255,0.7); }
+    .price-card.featured .price-body li::before { color: var(--teal-lt); }
+    .price-card.featured h3 { color: white; }
+    .price-phase {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.3rem;
+    }
+    .price-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .price-badge {
+      font-family: var(--font-ser);
+      font-size: 3rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--teal);
+      line-height: 1;
+      margin-bottom: 0.1rem;
+    }
+    .price-iva { font-size: 0.68rem; color: var(--muted); margin-bottom: 1rem; }
+    .price-body {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .price-body li {
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.4;
+    }
+    .price-body li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-size: 0.65rem;
+    }
+
+    /* ── COVER ── */
+    .cover-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100%;
+      margin: -3rem -4.5rem;
+    }
+    .cover-left {
+      background: var(--dark);
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cover-right {
+      background: var(--bg);
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .cover-tag {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal-lt);
+      margin-bottom: 1.2rem;
+    }
+    .cover-client {
+      font-family: var(--font-san);
+      font-size: 4.8rem;
+      font-weight: 800;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--teal-lt);
+      margin-bottom: 2rem;
+    }
+    .cover-title {
+      font-family: var(--font-ser);
+      font-size: 2.8rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.05;
+      color: white;
+      margin-bottom: 0;
+    }
+    .cover-title span { color: var(--teal-lt); font-style: normal; }
+    .cover-sub {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.35);
+    }
+    .cover-right-label {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .author-block {
+      margin-bottom: 1.2rem;
+    }
+    .author-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .author-role {
+      font-size: 0.7rem;
+      color: var(--teal);
+      margin-top: 0.1rem;
+    }
+    .author-web {
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    /* ── PARADOX LAYOUT ── */
+    .paradox-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    /* ── TENSION BOX ── */
+    .tension {
+      background: var(--dark);
+      border-radius: 6px;
+      padding: 1.4rem;
+    }
+    .tension p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.6;
+      font-style: italic;
+    }
+    .tension .verdict {
+      font-family: var(--font-ser);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--teal-lt);
+      margin-top: 0.8rem;
+      line-height: 1.2;
+    }
+
+    /* ── CLOSING ── */
+    .closing-big {
+      font-family: var(--font-ser);
+      font-size: 2.2rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 1.8rem;
+    }
+    .closing-big span { color: var(--teal); }
+    .closing-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1.4rem;
+      line-height: 1.6;
+    }
+    .closing-note strong { color: var(--ink); }
+    .footer-contacts {
+      position: absolute;
+      bottom: 1.4rem;
+      left: 4.5rem;
+      font-size: 0.58rem;
+      color: var(--border);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── REVEAL ── */
+    .reveal .progress { color: var(--teal); height: 2px; }
+    .reveal .controls button { color: var(--teal); }
+    .reveal .fragment { opacity: 0; transition: opacity 0.4s ease; }
+    .reveal .fragment.visible { opacity: 1; }
+    section::after { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="reveal">
+  <div class="slides">
+
+    <!-- SLIDE 1 — COVER -->
+    <section style="padding:0;">
+      <div class="cover-wrap">
+        <div class="cover-left">
+          <div>
+            <div class="cover-tag">Proposta di consulenza strategica per</div>
+            <div class="cover-client">Macrebag</div>
+            <div class="cover-title">Trasformare<br>i dati in<br><span>fatturato</span>.</div>
+          </div>
+          <div class="cover-sub">Marzo 2026</div>
+        </div>
+        <div class="cover-right">
+          <div class="cover-right-label">A cura di</div>
+          <div class="author-block">
+            <div class="author-name">Davide D'Amico</div>
+            <div class="author-role">Data &amp; Growth Partner per E-commerce</div>
+            <div class="author-web">davidedamico.com</div>
+          </div>
+          <div class="author-block">
+            <div class="author-name">Pierpaolo Maggio</div>
+            <div class="author-role">Marketing Strategist &amp; Automation Specialist</div>
+            <div class="author-web">pierpaolomaggio.com</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2 — DOVE SIETE OGGI -->
+    <section>
+      <div class="eyebrow">Fotografia attuale</div>
+      <h2>Dove siete <strong>oggi</strong></h2>
+      <div class="rule-accent"></div>
+      <ul class="fact-list">
+        <li class="fragment"><strong>Fatturato mensile:</strong> 10.000€ (mesi morti) → 40.000€+ (estate) — media 20–25k/mese</li>
+        <li class="fragment"><strong>Stagionalità forte:</strong> 1.000+ ordini/mese in estate, ~200 a dicembre–febbraio</li>
+        <li class="fragment"><strong>132.000 follower Instagram</strong> — canale YouTube con tutorial da 20–30 min prodotti da voi</li>
+        <li class="fragment"><strong>Team:</strong> community manager, consulente ads, data analyst (Federico), sviluppatore esterno</li>
+        <li class="fragment"><strong>Margine attuale: ~50%</strong> dopo il passaggio a fornitori turchi</li>
+        <li class="fragment"><strong>Conversion rate estivo con Google Ads: 9%</strong> — fino a 50 ordini/giorno</li>
+        <li class="fragment"><strong>Obiettivo:</strong> raddoppiare il fatturato in 12 mesi mantenendo più libertà operativa</li>
+      </ul>
+      <div class="slide-num">02 / 10</div>
+    </section>
+
+    <!-- SLIDE 3 — IL PARADOSSO -->
+    <section>
+      <div class="eyebrow">Il problema reale</div>
+      <h2>Avete tutti gli asset.<br><em>Manca la lettura.</em></h2>
+      <div class="rule-accent"></div>
+      <div class="paradox-layout">
+        <ul class="check-list">
+          <li class="fragment"><strong>Community da 132.000 follower</strong> costruita in anni</li>
+          <li class="fragment"><strong>Tracking attivo:</strong> GA4, Meta Pixel, GTM</li>
+          <li class="fragment"><strong>Data analyst in house</strong> (Federico) — fatturato già raddoppiato</li>
+          <li class="fragment"><strong>Prodotto validato</strong> con margine al 50%</li>
+          <li class="fragment"><strong>Team operativo</strong> su tutti i canali</li>
+        </ul>
+        <div class="fragment">
+          <div class="tension">
+            <p>Eppure la crescita dipende ancora dalla stagione, dall'algoritmo e dall'intuizione. Non da decisioni costruite sui dati.</p>
+            <div class="verdict">Non è un problema<br>di risorse. È un<br>problema di sistema.</div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-num">03 / 10</div>
+    </section>
+
+    <!-- SLIDE 4 — LE PERDITE -->
+    <section>
+      <div class="eyebrow">Revenue non catturata</div>
+      <h2>Quattro perdite misurabili —<br><em>senza aumentare il traffico</em></h2>
+      <div class="rule-accent"></div>
+      <div class="grid-4" style="margin-top:0.2rem;">
+        <div class="loss-card fragment">
+          <div class="loss-stat">70%</div>
+          <div class="loss-title">Carrello abbandonato</div>
+          <div class="loss-body">Tasso medio di abbandono (Baymard 2024). Al picco: ~2.300 carrelli/mese. Recupero email al 5% = <strong>+4.300€/mese</strong> senza nuovo traffico.</div>
+        </div>
+        <div class="loss-card fragment">
+          <div class="loss-stat">1:4</div>
+          <div class="loss-title">Stagionalità senza retention</div>
+          <div class="loss-body">Rapporto tra mese morto e picco. Email + contenuti strutturati → <strong>riduzione varianza del 20–30%</strong>.</div>
+        </div>
+        <div class="loss-card fragment">
+          <div class="loss-stat">1.320</div>
+          <div class="loss-title">Community Instagram non monetizzata</div>
+          <div class="loss-body">Clienti potenziali per campagna con solo l'1% dei 132k follower su Instagram. Portata organica in calo.</div>
+        </div>
+        <div class="loss-card fragment">
+          <div class="loss-stat">Set '25</div>
+          <div class="loss-title">Academy senza preparazione</div>
+          <div class="loss-body">Il lancio previsto è corretto strategicamente. Ma senza pre-lista segmentata e funnel di pre-lancio, genera una frazione del potenziale reale.</div>
+        </div>
+      </div>
+      <div class="slide-num">04 / 10</div>
+    </section>
+
+    <!-- SLIDE 5 — L'OPPORTUNITÀ -->
+    <section>
+      <div class="eyebrow">Valore latente</div>
+      <h2>Il valore è già dentro<br><em>il database. Va estratto.</em></h2>
+      <div class="rule-accent"></div>
+      <div class="grid-3">
+        <div class="opp-card fragment">
+          <div class="opp-stat">+67%</div>
+          <div class="opp-label">Clienti ricorrenti</div>
+          <div class="opp-body">Alcuni fino a 20–30 ordini/anno. Spendono il 67% in più rispetto a nuovi clienti (Bain &amp; Company). La retention è l'investimento con il ROI più alto — senza nuovo traffico.</div>
+        </div>
+        <div class="opp-card fragment">
+          <div class="opp-stat">38€/1€</div>
+          <div class="opp-label">Email marketing</div>
+          <div class="opp-body">ROI medio per ogni euro investito — superiore a qualsiasi canale paid. Se le automazioni non sono complete, si lascia sul tavolo il canale più redditizio ogni giorno.</div>
+        </div>
+        <div class="opp-card fragment">
+          <div class="opp-stat">∞</div>
+          <div class="opp-label">YouTube</div>
+          <div class="opp-body">Ogni tutorial genera autorevolezza ma non è collegato al funnel in modo sistematico. Ottimizzato, diventa un asset che vende in modo passivo per mesi.</div>
+        </div>
+      </div>
+      <div class="slide-num">05 / 10</div>
+    </section>
+
+    <!-- SLIDE 6 — IL METODO -->
+    <section>
+      <div class="eyebrow">Il nostro approccio</div>
+      <h2>Prima capire.<br><em>Poi agire.</em></h2>
+      <div class="rule-accent"></div>
+      <div class="grid-3" style="margin-top:0.4rem;">
+        <div class="phase-block active fragment">
+          <div class="phase-n">01</div>
+          <div class="phase-tag">2–3 settimane</div>
+          <div class="phase-title">Audit Strategico</div>
+          <div class="phase-body">Analisi completa di e-commerce, tracking, email, advertising e canali. Output: <strong>priorità operative con impatto stimato</strong> per area — non teoria.</div>
+        </div>
+        <div class="phase-block fragment">
+          <div class="phase-n">02</div>
+          <div class="phase-tag">Dopo l'audit — 2.000€ + IVA</div>
+          <div class="phase-title">Roadmap 90 Giorni</div>
+          <div class="phase-body">3–5 azioni ad alto impatto per il trimestre. KPI di riferimento, responsabilità chiare, timeline definita.</div>
+        </div>
+        <div class="phase-block fragment">
+          <div class="phase-n">03</div>
+          <div class="phase-tag">Opzionale</div>
+          <div class="phase-title">Supporto Mensile</div>
+          <div class="phase-body">Coordinamento continuativo della strategia. Si attiva solo se, dopo la diagnosi, ritenete che abbia senso proseguire.</div>
+        </div>
+      </div>
+      <div class="slide-num">06 / 10</div>
+    </section>
+
+    <!-- SLIDE 7 — AUDIT -->
+    <section>
+      <div class="eyebrow">Aree di analisi</div>
+      <h2>Cosa copre<br><em>l'audit</em></h2>
+      <div class="rule-accent"></div>
+      <div style="margin-top:0.2rem;">
+        <div class="audit-row fragment">
+          <div class="audit-lbl">E-commerce &amp; Funnel</div>
+          <div class="audit-txt">Shopify: product page, checkout, <strong>carrello abbandonato</strong>, upsell/cross-sell, back-in-stock. Dove si perde la conversione e come alzare l'AOV.</div>
+        </div>
+        <div class="audit-row fragment">
+          <div class="audit-lbl">Tracking &amp; Dati</div>
+          <div class="audit-txt">GA4, Meta Pixel, GTM: i dati che avete oggi sono affidabili? Cosa manca? Cosa viene registrato ma non viene letto?</div>
+        </div>
+        <div class="audit-row fragment">
+          <div class="audit-lbl">Email &amp; Automazioni</div>
+          <div class="audit-txt">Klaviyo: flows attivi, post-acquisto, <strong>win-back</strong>, recupero carrello, segmentazione lista.</div>
+        </div>
+        <div class="audit-row fragment">
+          <div class="audit-lbl">Advertising</div>
+          <div class="audit-txt">Meta e Google: attribuzione, <strong>budget allocation stagionale</strong>, KPI per ogni decisione di campagna.</div>
+        </div>
+        <div class="audit-row fragment">
+          <div class="audit-lbl">Canali &amp; Contenuti</div>
+          <div class="audit-txt">Instagram e YouTube: <strong>percorso reale da follower ad acquirente</strong> — dove si perde la conversione.</div>
+        </div>
+      </div>
+      <div class="slide-num">07 / 10</div>
+    </section>
+
+    <!-- SLIDE 8 — TEAM -->
+    <section>
+      <div class="eyebrow">Il team</div>
+      <h2>Entriamo come coordinatori.<br><em>Non sostituiamo nessuno.</em></h2>
+      <div class="rule-accent"></div>
+      <div class="grid-4" style="gap:1rem; margin-top:0.3rem;">
+        <div class="team-card fragment">
+          <div class="team-name">Davide D'Amico</div>
+          <div class="team-role">Data &amp; Growth Partner per E-commerce</div>
+          <div class="team-desc">Guida la lettura dei dati, costruisce il sistema di misurazione, coordina le decisioni strategiche.</div>
+        </div>
+        <div class="team-card fragment">
+          <div class="team-name">Pierpaolo Maggio</div>
+          <div class="team-role">Marketing Strategist &amp; Automation Specialist</div>
+          <div class="team-desc">Supporto su automazioni, canali digitali, DEM e strategia di contenuto.</div>
+        </div>
+        <div class="team-card fragment" style="border-color:#1A8C64; border-left-width:3px;">
+          <div class="team-name">Federico</div>
+          <div class="team-role">Data Analyst — già in house</div>
+          <div class="team-desc">Continua il lavoro analitico allineato a un framework condiviso. Non perdete nulla di quello che avete costruito — lo amplificate.</div>
+        </div>
+        <div class="team-card fragment">
+          <div class="team-name">Team esistente</div>
+          <div class="team-role">Community, Ads, Dev</div>
+          <div class="team-desc">Stessi ruoli, priorità più chiare e misurabili. Nessun task operativo aggiunto.</div>
+        </div>
+      </div>
+      <p class="fragment" style="margin-top:1rem; font-size:0.82rem; color:var(--teal); font-weight:600;">Meno decisioni prese sull'intuizione. Più decisioni prese sui dati.</p>
+      <div class="slide-num">08 / 10</div>
+    </section>
+
+    <!-- SLIDE 9 — OFFERTA -->
+    <section>
+      <div class="eyebrow">La proposta</div>
+      <h2>L'offerta</h2>
+      <div class="rule-accent"></div>
+      <div class="grid-3" style="margin-top:0.4rem; gap:1.2rem;">
+        <div class="price-card fragment">
+          <div class="price-phase">Fase 1</div>
+          <div class="price-title">Audit Strategico</div>
+          <div class="price-badge">790€</div>
+          <div class="price-iva">+ IVA</div>
+          <div class="rule"></div>
+          <ul class="price-body">
+            <li>Durata: 2–3 settimane dalla firma</li>
+            <li>Analisi completa: e-commerce, email, adv, canali, tracking</li>
+            <li>Deliverable: documento priorità operative con impatto stimato</li>
+            <li>Accessi: GA4, Shopify, Klaviyo, Meta Ads Manager</li>
+          </ul>
+        </div>
+        <div class="price-card featured fragment">
+          <div class="price-phase" style="color:var(--teal-lt);">Fase 2</div>
+          <div class="price-title">Roadmap 90 Giorni</div>
+          <div class="price-badge">2.000€</div>
+          <div class="price-iva">+ IVA</div>
+          <div class="rule" style="background:rgba(255,255,255,0.1);"></div>
+          <ul class="price-body">
+            <li>3–5 azioni ad alto impatto per il trimestre</li>
+            <li>KPI di riferimento per ogni azione</li>
+            <li>Responsabilità e timeline definite per il team</li>
+            <li>Attivabile dopo la conclusione dell'audit</li>
+          </ul>
+        </div>
+        <div class="price-card fragment">
+          <div class="price-phase">Fase 3 — Opzionale</div>
+          <div class="price-title">Supporto Strategico Mensile</div>
+          <div class="price-badge">1.200€</div>
+          <div class="price-iva">+ IVA / mese — nessun impegno automatico</div>
+          <div class="rule"></div>
+          <ul class="price-body">
+            <li>2 call settimanali da 2 ore</li>
+            <li>Supporto Slack in orario d'ufficio</li>
+            <li>Coordinamento del team esistente</li>
+            <li>Roadmap mensile aggiornata sui dati reali</li>
+          </ul>
+        </div>
+      </div>
+      <div class="slide-num">09 / 10</div>
+    </section>
+
+    <!-- SLIDE 10 — NEXT STEP -->
+    <section>
+      <div class="eyebrow">Prossimo step</div>
+      <div class="closing-big fragment">Una sola azione:<br><span>firma del contratto</span><br>per la Fase 1.</div>
+      <ul class="step-list fragment">
+        <li><span class="n">1</span>Condivisione accessi: GA4, Shopify, Klaviyo, Meta Ads Manager</li>
+        <li><span class="n">2</span>Kick-off call con Davide, Pierpaolo e Federico</li>
+        <li><span class="n">3</span>Audit completato entro 3 settimane</li>
+      </ul>
+      <div class="closing-note fragment">
+        Dopo l'audit decidiamo insieme se fermarci alla diagnosi o proseguire con il supporto mensile.<br>
+        <strong>Nessun impegno aggiuntivo oggi.</strong>
+      </div>
+      <div class="footer-contacts">davidedamico.com &nbsp;|&nbsp; pierpaolomaggio.com</div>
+      <div class="slide-num">10 / 10</div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.6.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: false,
+    progress: true,
+    controls: true,
+    controlsTutorial: false,
+    transition: 'fade',
+    transitionSpeed: 'default',
+    backgroundTransition: 'fade',
+    width: 1280,
+    height: 720,
+    margin: 0,
+    minScale: 0.3,
+    maxScale: 2.0,
+    fragments: true,
+    keyboard: true,
+    center: false,
+    touch: true,
+  });
+</script>
+</body>
+</html>
